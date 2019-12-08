@@ -7,7 +7,7 @@ const CLONE_SYMBOLS_FLAG = 4
  * This method is like `clone` except that it accepts `customizer` which
  * is invoked to produce the cloned value. If `customizer` returns `undefined`,
  * cloning is handled by the method instead. The `customizer` is invoked with
- * up to four arguments (value [, index|key, object, stack]).
+ * one argument (value).
  *
  * @since 4.0.0
  * @category Lang
@@ -33,7 +33,7 @@ const CLONE_SYMBOLS_FLAG = 4
  * // => 0
  */
 function cloneWith(value, customizer) {
-  customizer = typeof customizer == 'function' ? customizer : undefined
+  customizer = typeof customizer === 'function' ? customizer : undefined
   return baseClone(value, CLONE_SYMBOLS_FLAG, customizer)
 }
 

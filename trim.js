@@ -19,16 +19,13 @@ import stringToArray from './.internal/stringToArray.js'
  *
  * trim('-_-abc-_-', '_-')
  * // => 'abc'
- *
- * map(['  foo  ', '  bar  '], trim)
- * // => ['foo', 'bar']
  */
 function trim(string, chars) {
   if (string && chars === undefined) {
     return string.trim()
   }
   if (!string || !chars) {
-    return string
+    return (string || '')
   }
   const strSymbols = stringToArray(string)
   const chrSymbols = stringToArray(chars)

@@ -36,6 +36,9 @@ const hasOwnProperty = Object.prototype.hasOwnProperty
  * isEmpty([1, 2, 3])
  * // => false
  *
+ * isEmpty('abc')
+ * // => false
+ *
  * isEmpty({ 'a': 1 })
  * // => false
  */
@@ -44,7 +47,7 @@ function isEmpty(value) {
     return true
   }
   if (isArrayLike(value) &&
-      (Array.isArray(value) || typeof value == 'string' || typeof value.splice == 'function' ||
+      (Array.isArray(value) || typeof value === 'string' || typeof value.splice === 'function' ||
         isBuffer(value) || isTypedArray(value) || isArguments(value))) {
     return !value.length
   }

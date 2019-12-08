@@ -1,4 +1,7 @@
 import words from './words.js'
+import toString from './toString.js'
+
+const reQuotes = /['\u2019]/g
 
 /**
  * Converts `string`, as space separated words, to lower case.
@@ -20,7 +23,7 @@ import words from './words.js'
  * // => 'foo bar'
  */
 const lowerCase = (string) => (
-  words(`${string}`.replace(/['\u2019]/g, '')).reduce((result, word, index) => (
+  words(toString(string).replace(reQuotes, '')).reduce((result, word, index) => (
     result + (index ? ' ' : '') + word.toLowerCase()
   ), '')
 )
